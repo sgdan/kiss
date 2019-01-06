@@ -1,0 +1,8 @@
+/.gradle
+/build/
+/language/build/
+/language/out/
+/tests/build/
+/tests/out/
+/src/main/antlr/.antlr
+/out
