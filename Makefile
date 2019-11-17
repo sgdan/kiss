@@ -1,9 +1,16 @@
-graal=@docker-compose run --rm graalvm
+graalvm=@docker-compose run --rm graalvm
+
+.build: graalvm/Dockerfile
+	@docker-compose build graalvm
+	touch .build
+
+shell: .build
+	$(graalvm) bash
 
 build:
-	$(graal) ./gradlew clean build
+	$(graalvm) gradle build installDist
 
-shell:
-	docker-compose run graalvm bash
+run:
+	$(graalvm) ./build/install/kiss/bin/kiss
 
 .PHONY: build

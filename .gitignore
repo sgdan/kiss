@@ -6,3 +6,4 @@
 /tests/out/
 /src/main/antlr/.antlr
 /out
+.build

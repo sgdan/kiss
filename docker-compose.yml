@@ -1,10 +1,10 @@
 version: "3.7"
 services:
   graalvm:
-    image: oracle/graalvm-ce:19.2.1
+    build: graalvm
     volumes:
       - .:/working
-      - gradle_cache:/home/gradle/.gradle/caches
+      - gradle_cache:/root/.gradle
     working_dir: /working
 
 volumes:

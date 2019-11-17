@@ -12,11 +12,11 @@ version is not yet available (just Mac and Linux).
 To learn about Truffle they suggest:
 
 - subclassing [TruffleLanguage](https://github.com/graalvm/simplelanguage) and build from there
-- or forking [SimpleLanguage](https://github.com/graalvm/simplelanguage) which is a working implementation 
+- or forking [SimpleLanguage](https://github.com/graalvm/simplelanguage) which is a working implementation
 
 I chose the first option because I wanted to:
 
-- start with something even simpler (although of course less complete and more stupid!) 
+- start with something even simpler (although of course less complete and more stupid!)
 - use gradle (SimpleLanguage uses maven)
 - use kotlin (SimpleLanguage uses java)
 - incorporate antlr4 parser into the build (SimpleLanguage also uses antlr4)
@@ -29,30 +29,28 @@ The Kiss implementation is very simple, and supports only:
 
 ## Build and Run
 
-Install GraalVM. My testing is on Mac using RC10. It should be possible to run on Linux
-or perhaps even use the [docker image](https://hub.docker.com/r/oracle/graalvm-ce/) 
-```
-$ java -version
-openjdk version "1.8.0_192"
-OpenJDK Runtime Environment (build 1.8.0_192-20181024123616.buildslave.jdk8u-src-tar--b12)
-GraalVM 1.0.0-rc10 (build 25.192-b12-jvmci-0.53, mixed mode)
+Uses [3musketeers.io](https://3musketeers.io/) pattern and the
+[GraalVM docker image](https://hub.docker.com/r/oracle/graalvm-ce/) with
+[gradle](https://gradle.org/) installed to build and execute.
+
+Build and run unit tests (runs `gradle build installDist` in the container):
+
+```bash
+make build
 ```
 
-Clone this repository, then build and run unit tests using the gradle wrapper:
-```
-./gradlew clean build
-```
+To run the interpreter (runs `./build/install/kiss/bin/kiss` in the container):
 
-To build a command line executable, run:
-```
-./gradlew installDist
+```bash
+make run
 ```
 
 Test by running some one-line scripts
 (see [ParserTest.kt](src/test/kotlin/com/github/sgdan/kiss/ParserTest.kt)
 for more examples):
-```
-kiss$ ./build/install/kiss/bin/kiss
+
+```bash
+$ make run
 > 3 + 68
 71
 
@@ -61,5 +59,13 @@ kiss$ ./build/install/kiss/bin/kiss
 
 > fact { $ ? $*fact($-1) : 1 } fact 5
 120
+```
 
+Note that you can use gradle commands directly by starting a shell in
+the container:
+
+```bash
+$ make shell
+bash-4.2# gradle clean build
+...
 ```
