@@ -9,3 +9,5 @@ RUN mkdir -p /opt/gradle && cd /opt/gradle \
     && chmod +x gradle-${GRADLE_VERSION}/bin/gradle \
     && ln -s /opt/gradle/gradle-${GRADLE_VERSION}/bin/gradle /usr/local/bin/gradle \
     && rm gradle.zip
+
+RUN gu install native-image
