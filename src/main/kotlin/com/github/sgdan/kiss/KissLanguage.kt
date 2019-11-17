@@ -13,13 +13,11 @@ class KissLanguage : TruffleLanguage<KissContext>() {
 
     override fun createContext(env: Env) = KissContext()
 
-    override fun isObjectOfLanguage(`object`: Any): Boolean {
-        return false
-    }
+    override fun isObjectOfLanguage(`object`: Any): Boolean = false
 
     override fun parse(request: ParsingRequest): CallTarget {
         val script = Visitor.parse(this, request.source.characters.toString())
-        return Truffle.getRuntime().createCallTarget(script)
+        return Truffle.getRuntime().createCallTarget(script)!!
     }
 
 }

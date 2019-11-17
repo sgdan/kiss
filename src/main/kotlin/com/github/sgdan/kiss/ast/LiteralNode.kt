@@ -10,7 +10,7 @@ class LiteralNode(
         kl: KissLanguage,
         private val value: BigInteger
 ) : ExecutableNode(kl) {
-    override fun execute(frame: VirtualFrame): BigInteger {
-        return value
+    override fun execute(frame: VirtualFrame): String {
+        return value.toString()
     }
 }

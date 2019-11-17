@@ -2,17 +2,18 @@
 
 ## Background
 
-The [GraalVM](http://www.graalvm.org/) project is a "universal virtual machine" that extends the existing
-JVM and adds support for various other languages like Python and Ruby. It also includes
+The [GraalVM](http://www.graalvm.org/) project is a "universal virtual machine"
+that extends the existing JVM and adds support for various other languages like
+Python and Ruby. It also includes
 [Truffle](https://github.com/oracle/graal/blob/master/truffle/README.md) which is a language implementation
-framework, designed to make it easier to run other languages on the JVM. It is
-[getting close to release 1.0](https://github.com/oracle/graal/releases), currently at RC10 although a Windows
-version is not yet available (just Mac and Linux).
+framework, designed to make it easier to run other languages on the JVM.
 
 To learn about Truffle they suggest:
 
-- subclassing [TruffleLanguage](https://github.com/graalvm/simplelanguage) and build from there
-- or forking [SimpleLanguage](https://github.com/graalvm/simplelanguage) which is a working implementation
+- subclassing [TruffleLanguage](https://github.com/graalvm/simplelanguage)
+  and build from there
+- or forking [SimpleLanguage](https://github.com/graalvm/simplelanguage)
+  which is a working implementation
 
 I chose the first option because I wanted to:
 

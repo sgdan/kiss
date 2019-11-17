@@ -20,8 +20,7 @@ fun execute(script: String): String {
 fun main(args: Array<String>) {
     while (true) {
         print("> ")
-        val line = readLine()
-        when (line) {
+        when (val line = readLine()) {
             null, "", "quit", "exit" -> exitProcess(0)
             else -> println(execute(line))
         }

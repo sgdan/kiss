@@ -15,12 +15,12 @@ class ConditionalNode(kl: KissLanguage) : ExecutableNode(kl) {
     @Child
     lateinit var otherwise: ExecutableNode
 
-    override fun execute(frame: VirtualFrame): BigInteger {
-        val testValue = test.executeKiss(frame)
-        return if (testValue.signum() > 0) {
-            positive.executeKiss(frame)
+    override fun execute(frame: VirtualFrame): String {
+        val testValue = test.execute(frame).toString()
+        return if (BigInteger(testValue).signum() > 0) {
+            positive.execute(frame)
         } else {
-            otherwise.executeKiss(frame)
-        }
+            otherwise.execute(frame)
+        }.toString()
     }
 }

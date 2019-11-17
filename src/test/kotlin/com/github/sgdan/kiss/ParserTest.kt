@@ -28,8 +28,8 @@ class ParserTest : StringSpec({
                 // literal evaluates to itself
                 row("5", "5"),
 
-                // variable defaults to zero in script
-                row("$", "0"),
+                // variable defaults to error in script
+                row("$", "error"),
 
                 // some arithmetic
                 row("5 + 12", "17"),

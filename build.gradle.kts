@@ -4,12 +4,11 @@ plugins {
     antlr
     java
     application
-    kotlin("jvm") version "1.3.11"
-    kotlin("kapt") version "1.3.11"
+    kotlin("jvm") version "1.3.60"
+    kotlin("kapt") version "1.3.60"
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
     jcenter()
 }
@@ -21,18 +20,14 @@ configure<JavaPluginConvention> {
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
-    compile("io.github.microutils:kotlin-logging:1.6.10")
-    antlr("org.antlr:antlr4:4.7.1")
-    compile("org.graalvm.truffle:truffle-api:1.0.0-rc10")
-    kapt("org.graalvm.truffle:truffle-dsl-processor:1.0.0-rc10")
+    compile("io.github.microutils:kotlin-logging:1.7.7")
+    antlr("org.antlr:antlr4:4.7.2")
+    compile("org.graalvm.truffle:truffle-api:19.2.1")
+    kapt("org.graalvm.truffle:truffle-dsl-processor:19.2.1")
+    compile("org.graalvm.sdk:graal-sdk:19.2.1")
 
-    testImplementation("org.slf4j:slf4j-simple:1.7.25")
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.1.11")
-    constraints {
-        // stop complaints about conflicting versions in classpath
-        testImplementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.11")
-        testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.3.11")
-    }
+    testImplementation("org.slf4j:slf4j-simple:1.7.29")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
 }
 
 application {
